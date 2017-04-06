@@ -2,29 +2,33 @@
     {
         "from": "Langenfelde",
         "to": "Altona",
-        "departure_time_in_seconds": 332,
-        "departure_time": "05:32",
+        "departure_time_in_seconds": 286,
+        "departure_time_in_minutes": "04:46",
+        "departure_countdown_time": "04\/06\/2017 22:50:00",
         "trainline": "S3"
     },
     {
         "from": "Langenfelde",
         "to": "Altona",
-        "departure_time_in_seconds": 1349,
-        "departure_time": "22:29",
+        "departure_time_in_seconds": 1304,
+        "departure_time_in_minutes": "21:44",
+        "departure_countdown_time": "04\/06\/2017 23:07:00",
         "trainline": "S3"
     },
     {
         "from": "Langenfelde",
         "to": "Sternschanze",
-        "departure_time_in_seconds": 386,
-        "departure_time": "06:26",
+        "departure_time_in_seconds": 341,
+        "departure_time_in_minutes": "05:41",
+        "departure_countdown_time": "04\/06\/2017 22:51:00",
         "trainline": "S21"
     },
     {
         "from": "Langenfelde",
         "to": "Sternschanze",
-        "departure_time_in_seconds": 1584,
-        "departure_time": "26:24",
+        "departure_time_in_seconds": 1538,
+        "departure_time_in_minutes": "25:38",
+        "departure_countdown_time": "04\/06\/2017 23:11:00",
         "trainline": "S21"
     }
 ]

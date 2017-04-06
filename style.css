@@ -1,0 +1,30 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.bar {
+  width: 100%;
+  height: 5em;
+  background: red;
+}
+
+.p20 {
+  width: 20%;
+}
+
+.p80 {
+  width: 80%;
+  background: darkgreen;
+}
+
+.s21 {
+  color: #B4143A
+}
+
+.s11 {
+  color: #04952B;
+}
+
+.s3 {
+  color: #54216E;
+}

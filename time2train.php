@@ -50,6 +50,9 @@ function departure_in_seconds($from, $to, $connection_number){
       /* Calculate the time until departure in seconds. */
       $departure_in_seconds = strtotime($departure_time_string) + $delay_seconds - strtotime('now');
 
+      /* Convert timestamp to final countdown format */
+      $departure_countdown_time =  date('m/d/Y G:i:s', strtotime($departure_time_string) + $delay_seconds );
+
       /* Find link to train connection detail information page */
       $connection_details_url = html_entity_decode($connection->find('a',0)->href);
 
@@ -67,7 +70,8 @@ function departure_in_seconds($from, $to, $connection_number){
         'from' => $from,
         'to' => $to,
         'departure_time_in_seconds' => $departure_in_seconds,
-        'departure_time' => gmdate("i:s",$departure_in_seconds),
+        'departure_time_in_minutes' => gmdate("i:s",$departure_in_seconds),
+        'departure_countdown_time' => $departure_countdown_time,
         'trainline' => $trainline,
     );
 
