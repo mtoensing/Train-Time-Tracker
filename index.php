@@ -57,7 +57,6 @@ function departure_in_seconds($from, $to, $connection_number){
       /* Scrape this connection detail url */
       $connection_details_html = url_to_dom($connection_details_url);
 
-
       /* Find the trainline in the HTML snippet */
       $trainline = $connection_details_html->find('.motSection',0);
 
