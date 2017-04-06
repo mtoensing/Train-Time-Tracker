@@ -51,23 +51,23 @@ function departure_in_seconds($from, $to, $connection_number){
       $departure_in_seconds = strtotime($departure_time_string) + $delay_seconds - strtotime('now');
 
       /* Find link to train connection detail information page */
-      $connection_details_url = ($connection->find('a',0)->href);
+      $connection_details_url = html_entity_decode($connection->find('a',0)->href);
 
       /* THIS DOES NOT WORK! WHY?? The response is not the correct HTML */
       /* Scrape this connection detail url */
       $connection_details_html = url_to_dom($connection_details_url);
 
       /* Find the trainline in the HTML snippet */
-      $trainline = $connection_details_html->find('.motSection',0);
+      $trainline = $connection_details_html->find('.motSection',0)->plaintext;
 
       /* Return all information */
-      return $departure_time_string.' Delay:'.$delay.' Train line:'.$trainline;
+      //return gmdate("H:i:s",$departure_in_seconds) .' - ' .$departure_time_string.' Delay:'.$delay_seconds.' Train line:'.$trainline;
+
+      return gmdate("i:s",$departure_in_seconds).' '.$trainline . ' nach '.$to;
 
 }
 
 function url_to_dom($href, $post = false) {
-    /*store temporary cookie files */
-    $cookie_jar = tempnam('/tmp','cookie');
 
     $curl = curl_init();
 
@@ -76,10 +76,8 @@ function url_to_dom($href, $post = false) {
       curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($post));
       curl_setopt($curl, CURLOPT_POST, true);
     }
-
+    curl_setopt($curl, CURLOPT_COOKIESESSION, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($curl, CURLOPT_COOKIEFILE, $cookie_jar);
-    curl_setopt($curl, CURLOPT_COOKIEJAR, $cookie_jar);
     curl_setopt($curl, CURLOPT_URL, $href);
 
     $str = curl_exec($curl);
@@ -92,7 +90,8 @@ function url_to_dom($href, $post = false) {
     return $dom;
 }
 
+
 echo departure_in_seconds('Langenfelde', 'Altona', 0).'<br>';
-//echo departure_in_seconds('Langenfelde', 'Altona', 1).'<br><br>';
-//echo departure_in_seconds('Langenfelde', 'Sternschanze', 0).'<br>';
-//echo departure_in_seconds('Langenfelde', 'Sternschanze', 1);
+echo departure_in_seconds('Langenfelde', 'Altona', 1).'<br><br>';
+echo departure_in_seconds('Langenfelde', 'Sternschanze', 0).'<br>';
+echo departure_in_seconds('Langenfelde', 'Sternschanze', 1);
