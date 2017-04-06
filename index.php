@@ -1,6 +1,6 @@
 <?php
 
-/* Display real time information for a specific connection by scrapping mobile.bahn.de */
+/* Display real time information for a specific connection by scraping mobile.bahn.de */
 
 require_once("simple_html_dom.php");
 
@@ -50,12 +50,13 @@ function departure_in_seconds($from, $to, $connection_number){
       /* Calculate the time until departure in seconds. */
       $departure_in_seconds = strtotime($departure_time_string) + $delay_seconds - strtotime('now');
 
-
       /* Find link to train connection detail information page */
       $connection_details_url = ($connection->find('a',0)->href);
 
+      /* THIS DOES NOT WORK! WHY?? The response is not the correct HTML */
       /* Scrape this connection detail url */
       $connection_details_html = url_to_dom($connection_details_url);
+
 
       /* Find the trainline in the HTML snippet */
       $trainline = $connection_details_html->find('.motSection',0);
@@ -66,18 +67,21 @@ function departure_in_seconds($from, $to, $connection_number){
 }
 
 function url_to_dom($href, $post = false) {
+    /*store temporary cookie files */
+    $cookie_jar = tempnam('/tmp','cookie');
 
     $curl = curl_init();
 
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($curl, CURLOPT_COOKIEFILE, 'cookies.txt');
-    curl_setopt($curl, CURLOPT_COOKIEJAR, 'cookies.txt');
-
+    /* if $post is set sent this posdt fields as a post request */
     if( $post ){
       curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($post));
       curl_setopt($curl, CURLOPT_POST, true);
     }
-        curl_setopt($curl, CURLOPT_URL, $href);
+
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($curl, CURLOPT_COOKIEFILE, $cookie_jar);
+    curl_setopt($curl, CURLOPT_COOKIEJAR, $cookie_jar);
+    curl_setopt($curl, CURLOPT_URL, $href);
 
     $str = curl_exec($curl);
     curl_close($curl);
