@@ -53,17 +53,23 @@ function departure_in_seconds($from, $to, $connection_number){
       /* Find link to train connection detail information page */
       $connection_details_url = html_entity_decode($connection->find('a',0)->href);
 
-      /* THIS DOES NOT WORK! WHY?? The response is not the correct HTML */
       /* Scrape this connection detail url */
       $connection_details_html = url_to_dom($connection_details_url);
 
       /* Find the trainline in the HTML snippet */
-      $trainline = $connection_details_html->find('.motSection',0)->plaintext;
+      $trainline = str_replace(' ', '',trim($connection_details_html->find('.motSection',0)->plaintext));
 
       /* Return all information */
       //return gmdate("H:i:s",$departure_in_seconds) .' - ' .$departure_time_string.' Delay:'.$delay_seconds.' Train line:'.$trainline;
+      //return gmdate("i:s",$departure_in_seconds).' '.$trainline . ' nach '.$to;
 
-      return gmdate("i:s",$departure_in_seconds).' '.$trainline . ' nach '.$to;
+    return Array(
+        'from' => $from,
+        'to' => $to,
+        'departure_time_in_seconds' => $departure_in_seconds,
+        'departure_time' => gmdate("i:s",$departure_in_seconds),
+        'trainline' => $trainline,
+    );
 
 }
 
@@ -90,8 +96,10 @@ function url_to_dom($href, $post = false) {
     return $dom;
 }
 
+$result = array();
+$result[]= departure_in_seconds('Langenfelde', 'Altona', 0);
+$result[] = departure_in_seconds('Langenfelde', 'Altona', 1);
+$result[] = departure_in_seconds('Langenfelde', 'Sternschanze',0);
+$result[] = departure_in_seconds('Langenfelde', 'Sternschanze',1);
 
-echo departure_in_seconds('Langenfelde', 'Altona', 0).'<br>';
-echo departure_in_seconds('Langenfelde', 'Altona', 1).'<br><br>';
-echo departure_in_seconds('Langenfelde', 'Sternschanze', 0).'<br>';
-echo departure_in_seconds('Langenfelde', 'Sternschanze', 1);
+echo json_encode($result,JSON_PRETTY_PRINT);

@@ -1,0 +1,30 @@
+[
+    {
+        "from": "Langenfelde",
+        "to": "Altona",
+        "departure_time_in_seconds": 332,
+        "departure_time": "05:32",
+        "trainline": "S3"
+    },
+    {
+        "from": "Langenfelde",
+        "to": "Altona",
+        "departure_time_in_seconds": 1349,
+        "departure_time": "22:29",
+        "trainline": "S3"
+    },
+    {
+        "from": "Langenfelde",
+        "to": "Sternschanze",
+        "departure_time_in_seconds": 386,
+        "departure_time": "06:26",
+        "trainline": "S21"
+    },
+    {
+        "from": "Langenfelde",
+        "to": "Sternschanze",
+        "departure_time_in_seconds": 1584,
+        "departure_time": "26:24",
+        "trainline": "S21"
+    }
+]
