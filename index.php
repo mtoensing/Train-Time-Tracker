@@ -16,7 +16,7 @@
       crossorigin="anonymous"></script>
       <script src="js/jquery.countdown.js"></script>
       <script src="js/init.js"></script>
-      <link rel="stylesheet" type="text/css" href="style.css" media="all" />
+      <link rel="stylesheet" type="text/css" href="styles.css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 <body>
