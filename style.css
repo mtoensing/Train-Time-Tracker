@@ -1,21 +1,32 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family:'Comfortaa', sans-serif;
+
+  font-size: 90%;
+  background: #000;
+}
+
+li {
+  color: #e3e3e3;
 }
 
 ul {
   list-style: none;
+  width: 16em;
+  margin: 0 auto;
+  padding: 0.25em;
 }
 
 li {
-  margin-bottom: 2em;
+  margin-bottom: 2.5em;
 }
 
 h2 {
-  margin-bottom: 0;
+  margin-bottom: 0.2em;
 }
 
 .countdown {
-  font-size: 1.5em;
+  font-size: 3em;
+  color: #fff;
 
 }
 
@@ -29,13 +40,9 @@ p {
   background: red;
 }
 
-.p20 {
-  width: 20%;
-}
-
-.p80 {
-  width: 80%;
-  background: darkgreen;
+.s21,.s11,.s3 {
+  background: white;
+  padding: 0.1em 0.1em 0.0em 0.1em;
 }
 
 .s21 {

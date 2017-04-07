@@ -4,10 +4,7 @@
 
 require_once("simple_html_dom.php");
 
-function departure_in_seconds($from, $to, $connection_number){
-
-      // html on mobile.bahn.de is weird. So wi
-      $row_number = ($connection_number+1) * 2 - 2;
+function departure_in_seconds($from, $to, $row_number){
 
       $date = date('d.m.y');
       $time = date('H:i');
@@ -101,9 +98,9 @@ function url_to_dom($href, $post = false) {
 }
 
 $result = array();
-$result[]= departure_in_seconds('Langenfelde', 'Altona', 0);
-$result[] = departure_in_seconds('Langenfelde', 'Altona', 1);
-$result[] = departure_in_seconds('Langenfelde', 'Sternschanze',0);
-$result[] = departure_in_seconds('Langenfelde', 'Sternschanze',1);
+$result[]= departure_in_seconds('Hamburg-Langenfelde', 'Altona', 0);
+$result[] = departure_in_seconds('Hamburg-Langenfelde', 'Altona', 1);
+$result[] = departure_in_seconds('Hamburg-Langenfelde', 'Sternschanze',0);
+$result[] = departure_in_seconds('Hamburg-Langenfelde', 'Sternschanze',1);
 
 echo json_encode($result,JSON_PRETTY_PRINT);
