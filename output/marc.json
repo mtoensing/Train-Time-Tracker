@@ -1,0 +1,50 @@
+[
+    {
+        "from": "Hamburg-Langenfelde",
+        "to": "Sternschanze",
+        "departure_time_in_seconds": 467,
+        "departure_time_in_minutes": "07:47",
+        "departure_countdown_time": "04\/09\/2017 21:11:00",
+        "trainline": "S21"
+    },
+    {
+        "from": "Hamburg-Langenfelde",
+        "to": "Sternschanze",
+        "departure_time_in_seconds": 644,
+        "departure_time_in_minutes": "10:44",
+        "departure_countdown_time": "04\/09\/2017 21:14:00",
+        "trainline": "Bus183"
+    },
+    {
+        "from": "Sternschanze",
+        "to": "Hamburg-Langenfelde",
+        "departure_time_in_seconds": 100,
+        "departure_time_in_minutes": "01:40",
+        "departure_countdown_time": "04\/09\/2017 21:05:00",
+        "trainline": "S21"
+    },
+    {
+        "from": "Sternschanze",
+        "to": "Hamburg-Langenfelde",
+        "departure_time_in_seconds": 157,
+        "departure_time_in_minutes": "02:37",
+        "departure_countdown_time": "04\/09\/2017 21:06:00",
+        "trainline": "S31"
+    },
+    {
+        "from": "Hamburg-Langenfelde",
+        "to": "Altona",
+        "departure_time_in_seconds": 275,
+        "departure_time_in_minutes": "04:35",
+        "departure_countdown_time": "04\/09\/2017 21:08:00",
+        "trainline": "S3"
+    },
+    {
+        "from": "Hamburg-Langenfelde",
+        "to": "Altona",
+        "departure_time_in_seconds": 452,
+        "departure_time_in_minutes": "07:32",
+        "departure_countdown_time": "04\/09\/2017 21:11:00",
+        "trainline": "S21"
+    }
+]

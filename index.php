@@ -1,6 +1,16 @@
 <!doctype html>
 <html>
 <head>
+    <!--
+
+    Grüße an alle Quelltext-Leser!
+
+    Besuche https://marc.tv
+
+
+    URL zu diesem Projekt: https://github.com/mtoensing/3T
+
+    -->
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
     <link rel="apple-touch-icon" href="ios/AppIcon.appiconset/Icon-60@2x.png" />
@@ -16,7 +26,7 @@
       crossorigin="anonymous"></script>
       <script src="js/jquery.countdown.js"></script>
       <script src="js/init.js"></script>
-      <link rel="stylesheet" type="text/css" href="styles.css" media="all" />
+      <link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 <body>
