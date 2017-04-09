@@ -32,7 +32,7 @@ $(document).ready(function () {
                         $(this).html(event.strftime('%M:%S'));
                     });
                 });
-                //setTimeout(getData, 30000);
+                setTimeout(getData, 30000);
             });
         } else {
             alert('Please specify an id first.')
