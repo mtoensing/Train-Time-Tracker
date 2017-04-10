@@ -28,5 +28,15 @@ if ($size == FALSE) {
     echo "error writing file"; die();
 }
 
+$result = array();
+$result[] = departure_in_seconds('Sternschanze', 'Hamburg-Langenfelde', 0);
+$result[] = departure_in_seconds('Sternschanze', 'Hamburg-Langenfelde', 1);
+
+$json = json_encode($result, JSON_PRETTY_PRINT);
+$size = file_put_contents('output/sternschanze.json', $json);
+
+if ($size == FALSE) {
+    echo "error writing file"; die();
+}
 
 ?>

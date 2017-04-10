@@ -4,9 +4,10 @@
 
 require_once("lib/simple_html_dom.php");
 
-function departure_in_seconds($from, $to, $row_number)
+function departure_in_seconds($from, $to, $row_number, $debug = false)
 {
-
+    $start = microtime(true);
+    $debug_msg = array();
     $date = date('d.m.y');
     $time = date('H:i');
 
@@ -37,8 +38,8 @@ function departure_in_seconds($from, $to, $row_number)
     /* Display error messages */
     $error_message = false;
     $error_message = str_get_html($html->find('.errormsg', 0));
-    if($error_message){
-        echo $html; die();
+    if ($error_message) {
+        echo $html;
     }
 
     /* Scrape the correct train connection from HTML */
@@ -47,13 +48,34 @@ function departure_in_seconds($from, $to, $row_number)
     /* Find departure time information in connection HTML snippet */
     $departure_time_string = $connection->find('.bold', 0)->plaintext;
 
+    $debug_msg[] = 'scraped departure time ' . $departure_time_string;
+    $debug_msg[] = 'current server time ' . date("h:i:s");
+
+    $scrapped_time = strtotime($departure_time_string);
+    $realtime_time = strtotime(date("h:i:s"));
+    $debug_msg[] = 'difference: ' . round(abs($scrapped_time - $realtime_time) / 60, 2) . " minutes";
+
     /* Find delay information in connection HTML snippet */
     $delay_string = $connection->find('.okmsg', 0);
+
+    if ($delay_string == false) {
+        $delay_string = $connection->find('.red', 0);
+    }
+
     $delay = preg_replace("/[^0-9]/", "", $delay_string);
-    $delay_seconds = $delay * 60;
+
+    if (!is_numeric($delay)) {
+        $delay_seconds = 0;
+    } else {
+        $delay_seconds = $delay * 60;
+    }
+
+    $debug_msg[] = 'scraped delay ' . $delay_string;
 
     /* Calculate the time until departure in seconds. */
     $departure_in_seconds = strtotime($departure_time_string) + $delay_seconds - strtotime('now');
+
+    $debug_msg[] = 'delay in seconds: ' . $delay_seconds . ' and in minutes ' . gmdate("i:s", $delay_seconds);
 
     /* Convert timestamp to final countdown format */
     $departure_countdown_time = date('m/d/Y G:i:s', strtotime($departure_time_string) + $delay_seconds);
@@ -71,7 +93,8 @@ function departure_in_seconds($from, $to, $row_number)
     //return gmdate("H:i:s",$departure_in_seconds) .' - ' .$departure_time_string.' Delay:'.$delay_seconds.' Train line:'.$trainline;
     //return gmdate("i:s",$departure_in_seconds).' '.$trainline . ' nach '.$to;
 
-    return Array(
+
+    $result = Array(
         'from' => $from,
         'to' => $to,
         'departure_time_in_seconds' => $departure_in_seconds,
@@ -80,6 +103,16 @@ function departure_in_seconds($from, $to, $row_number)
         'trainline' => $trainline,
     );
 
+    $debug_msg[] = json_encode($result, JSON_PRETTY_PRINT);
+
+    $end = microtime(true);
+    $debug_msg[] = 'script execution time in seconds: ' . round($end - $start, 2);
+
+    if ($debug) {
+        print_r($debug_msg);
+    }
+
+    return $result;
 }
 
 function url_to_dom($href, $post = false)
@@ -105,3 +138,8 @@ function url_to_dom($href, $post = false)
 
     return $dom;
 }
+
+
+//departure_in_seconds('Hamburg-Langenfelde', 'Sternschanze', 0, true);
+
+
