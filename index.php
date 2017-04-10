@@ -26,9 +26,9 @@
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-      <script src="js/jquery.countdown.js"></script>
-      <script src="js/init.js"></script>
-      <link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+      <script src="js/jquery.countdown.js?v=1"></script>
+      <script src="js/jquery.init.js?v=1"></script>
+      <link rel="stylesheet" type="text/css" href="css/styles.css?v=1" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 <body>

@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-    function getData() {
+    function getData(auto) {
 
         var getvars = getUrlVars();
         var id = getvars['id']
 
-        if(id !== "undefined") {
+        if (id !== "undefined") {
             $.getJSON("output/?callback=?&id=" + id, function (data) {
 
                 var items = [];
@@ -17,7 +17,7 @@ $(document).ready(function () {
                         + '<!-- <div class="bar p20"></div> -->'
                         + '</li>');
 
-                        from = val.from;
+                    from = val.from;
                 });
                 $("body").empty();
                 $("<ul/>", {
@@ -32,23 +32,41 @@ $(document).ready(function () {
                         $(this).html(event.strftime('%M:%S'));
                     });
                 });
-                setTimeout(getData, 30000);
+
+                setTimeout(function() {
+                    getData(true);
+                }, 10000)
+                
             });
         } else {
             alert('Please specify an id first.')
         }
-
-
     }
+
+
+    function getDataWrapper(){
+        getData(false);
+    }
+
 
     function getUrlVars() {
         var vars = {};
-        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
             vars[key] = value;
         });
         return vars;
     }
 
+    $("body").click(function () {
+        $(this).addClass('flash');
+        getDataWrapper();
+        setTimeout(function () {
+            $('body').removeClass('flash');
+        }, 1100);
+    });
+
+
+
     getData(); // run once to start it
 
-});
+    });

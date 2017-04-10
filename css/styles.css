@@ -1,10 +1,23 @@
 body {
   font-family:'Comfortaa', sans-serif;
-
   font-size: 90%;
   background: #000;
   margin: 1em;
 }
+
+body.flash {
+  animation: highlight 1s;
+}
+
+@keyframes highlight {
+  0% {
+    background: #858585;
+  }
+  100% {
+    background: black;
+  }
+}
+
 
 h1 {
   color: white;
