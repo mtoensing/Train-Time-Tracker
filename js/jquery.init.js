@@ -36,7 +36,7 @@ $(document).ready(function () {
                 setTimeout(function() {
                     getData(true);
                 }, 10000)
-                
+
             });
         } else {
             alert('Please specify an id first.')
@@ -58,6 +58,7 @@ $(document).ready(function () {
     }
 
     $("body").click(function () {
+        event.preventDefault();
         $(this).addClass('flash');
         getDataWrapper();
         setTimeout(function () {

@@ -36,7 +36,6 @@ function departure_in_seconds($from, $to, $row_number, $debug = false)
     $html = url_to_dom('https://mobile.bahn.de/bin/mobil/query.exe/dox', $post);
 
     /* Display error messages */
-    $error_message = false;
     $error_message = str_get_html($html->find('.errormsg', 0));
     if ($error_message) {
         echo $html;

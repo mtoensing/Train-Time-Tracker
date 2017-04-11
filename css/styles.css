@@ -1,95 +1,105 @@
 body {
-  font-family:'Comfortaa', sans-serif;
-  font-size: 90%;
-  background: #000;
-  margin: 1em;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 90%;
+    background: #000;
+    margin: 1em;
+    cursor: pointer;
+
+}
+
+body, ul, li, p, h1, h2 {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
 }
 
 body.flash {
-  animation: highlight 1s;
+    animation: highlight 1s;
 }
 
 @keyframes highlight {
-  0% {
-    background: #858585;
-  }
-  100% {
-    background: black;
-  }
+    0% {
+        background: #858585;
+    }
+    100% {
+        background: black;
+    }
 }
-
 
 h1 {
-  color: white;
-  padding: 0.25em 0;
-  margin: 0;
-  margin-bottom: 0.25em;
+    color: white;
+    padding: 0.25em 0;
+    margin: 0;
+    margin-bottom: 0.25em;
 }
 
-
 li {
-  color: #e3e3e3;
+    color: #e3e3e3;
 }
 
 ul {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0.25em 0;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0.25em 0;
+    cursor: pointer;
 }
 
 li {
-  margin-bottom: 2.5em;
+    margin-bottom: 2.5em;
 }
 
 h2 {
-  margin-bottom: 0.2em;
+    margin-bottom: 0.2em;
 }
 
 .countdown {
-  font-size: 3em;
-  color: #fff;
+    font-size: 3em;
+    color: #fff;
 
 }
 
 p {
-  margin-top: 0em;
+    margin-top: 0em;
 }
 
 .bar {
-  width: 100%;
-  height: 5em;
-  background: red;
+    width: 100%;
+    height: 5em;
+    background: red;
 }
 
-.s21,.s11,.s3, .u1, .u2, .u3, .u4, .s1 {
-  color: white;
-  padding: 0.1em 0.1em 0.0em 0.1em;
+.s21, .s11, .s3, .u1, .u2, .u3, .u4, .s1 {
+    color: white;
+    padding: 0.1em 0.1em 0.0em 0.1em;
 }
 
 .s21 {
-  background: #B4143A
+    background: #B4143A
 }
 
 .s11, .s1 {
-  background: #04952B;
+    background: #04952B;
 }
 
 .s3 {
-  background: #54216E;
+    background: #54216E;
 }
 
 .u1 {
-  background: #005AA4;
+    background: #005AA4;
 }
 
 .u2 {
-  background: #ED0020;
+    background: #ED0020;
 }
 
 .u3 {
-  background: #FFD600;
+    background: #FFD600;
 }
 
 .u4 {
-  background: #008B8F;
+    background: #008B8F;
 }
