@@ -5,8 +5,4 @@
 
 output/*
 
-output/langenfelde.json
-
-output/langenfelde.json
-
-output/hafencity.json
+output/*.json
