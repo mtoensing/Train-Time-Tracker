@@ -3,6 +3,4 @@
 
 *.iml
 
-output/*
-
 output/*.json
