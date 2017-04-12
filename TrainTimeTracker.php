@@ -72,7 +72,7 @@ function departure_in_seconds($from, $to, $row_number, $debug = false)
     $debug_msg[] = 'scraped delay ' . $delay_string;
 
     /* Calculate the time until departure in seconds. */
-    $departure_in_seconds = strtotime($departure_time_string) + $delay_seconds - strtotime('now');
+    $departure_in_seconds = strtotime($departure_time_string) + $delay_seconds - strtotime('now') - 60; // Real-Life tests show that 60 seconds less are much more accurate.
 
     $debug_msg[] = 'delay in seconds: ' . $delay_seconds . ' and in minutes ' . gmdate("i:s", $delay_seconds);
 
