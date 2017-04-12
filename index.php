@@ -23,9 +23,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Train Time Tracker</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-    <script src="js/jquery.countdown.js?v=2"></script>
-    <script src="js/jquery.init.js?v=2"></script>
-    <link rel="stylesheet" type="text/css" href="css/styles.css?v=2" media="all"/>
+    <script src="js/jquery.countdown.js?v=3"></script>
+    <script src="js/jquery.init.js?v=3"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css?v=3" media="all"/>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 <body>

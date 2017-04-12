@@ -50,7 +50,7 @@ $(document).ready(function () {
                 $(val).countdown($(this).data('departure-countdown-time'), function (event) {
                     $(this).html(event.strftime('%M:%S'));
                     if (event.elapsed) {
-                        $(this).parent().parent().remove();
+                        $(this).parent().parent().addClass('hidden');
                         $('#item2').show();
                     } else {
 
