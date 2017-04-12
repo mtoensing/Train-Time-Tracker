@@ -7,6 +7,10 @@ body {
 
 }
 
+.hidden {
+    display: none;
+}
+
 body, ul, li, p, h1, h2 {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */

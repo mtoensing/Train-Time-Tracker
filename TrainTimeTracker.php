@@ -142,6 +142,7 @@ function generateJSON($from,$to){
     $result = array();
     $result[] = departure_in_seconds($from, $to, 0);
     $result[] = departure_in_seconds($from, $to, 1);
+    $result[] = departure_in_seconds($from, $to, 2);
 
     $json = json_encode($result, JSON_PRETTY_PRINT);
     $size = file_put_contents('output/' . $from . '-' . $to . '.json', $json);

@@ -10,12 +10,17 @@ $(document).ready(function () {
             var items = [];
             var from = '';
             var to = '';
+            var classvalue = '';
 
             $.each(data, function (key, val) {
 
-
                 if (val.trainline != null) {
-                    items.push('<li class="connection" id="' + key + '">'
+
+                    if(key > 1){
+                        classvalue = 'hidden';
+                    }
+
+                    items.push('<li class="connection ' + classvalue + '" id="item' + key + '">'
                         + '<h2><span class="' + val.trainline.toLowerCase() + '">' + val.trainline + '</span> ➔ ' + val.to + '</h2>'
                         + '<p><span data-departure-countdown-time="' + val.departure_countdown_time + '" class="countdown">' + val.departure_time_in_minutes + '</span> Minuten</p>'
                         + '</li>');
@@ -44,6 +49,14 @@ $(document).ready(function () {
             $.each($('.countdown'), function (key, val) {
                 $(val).countdown($(this).data('departure-countdown-time'), function (event) {
                     $(this).html(event.strftime('%M:%S'));
+                    if (event.elapsed) {
+                        $(this).parent().parent().remove();
+                        $('#item2').show();
+                    } else {
+
+                    }
+
+
                 });
             });
 
