@@ -9,16 +9,31 @@ $(document).ready(function () {
 
             var items = [];
             var from = '';
-            $.each(data, function (key, val) {
-                items.push('<li class="connection" id="' + key + '">'
-                    + '<h2><span class="' + val.trainline.toLowerCase() + '">' + val.trainline + '</span> ➔ ' + val.to + '</h2>'
-                    + '<p><span data-departure-countdown-time="' + val.departure_countdown_time + '" class="countdown">' + val.departure_time_in_minutes + '</span> Minuten</p>'
-                    + '<!-- <div class="bar p20"></div> -->'
-                    + '</li>');
+            var to = '';
 
-                from = val.from;
+            $.each(data, function (key, val) {
+
+
+                if (val.trainline != null) {
+                    items.push('<li class="connection" id="' + key + '">'
+                        + '<h2><span class="' + val.trainline.toLowerCase() + '">' + val.trainline + '</span> ➔ ' + val.to + '</h2>'
+                        + '<p><span data-departure-countdown-time="' + val.departure_countdown_time + '" class="countdown">' + val.departure_time_in_minutes + '</span> Minuten</p>'
+                        + '</li>');
+
+                    from = val.from;
+                    to = val.to;
+                } else {
+                    items.push(val);
+                }
+
             });
-            $("body").empty();
+
+            $('body').empty();
+
+            if(to != ''){
+                $('title').html(to);
+            }
+
             $("<ul/>", {
                 "class": "connections",
                 html: items.join("")

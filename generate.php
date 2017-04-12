@@ -10,5 +10,4 @@ generateJSON('Überseequartier','Hamburg Jungfernstieg');
 
 generateJSON('Sternschanze','Hamburg-Langenfelde');
 
-
 ?>

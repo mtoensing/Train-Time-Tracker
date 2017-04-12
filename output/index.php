@@ -1,5 +1,22 @@
 <?php
+error_reporting(E_ERROR);
 
+function listJSON()
+{
+    $path_to_output_dir = str_replace('index.php', '', __FILE__);
+
+
+    $files = glob($path_to_output_dir . '/*.json');
+    $html = '';
+
+    foreach ($files as $path) {
+        $json = str_replace($path_to_output_dir . '/', '', $path);
+        $id = str_replace('.json', '', $json);
+        $html .= '<li><a href="?id=' . $id . '">' . $id . '</a></li>';
+    }
+
+    return $html;
+}
 
 if (array_key_exists('callback', $_GET)) {
 
@@ -9,26 +26,21 @@ if (array_key_exists('callback', $_GET)) {
 
     $identifier = $_GET['id'];
 
-    if ($identifier) {
 
-        $data = file_get_contents($identifier . ".json"); // json string
-        $callback = $_GET['callback'];
-        echo $callback . '(' . $data . ');';
+    $data = file_get_contents($identifier . ".json"); // json string
+    $callback = $_GET['callback'];
+
+    if ($data == false) {
+        $output = Array(
+            "html" => listJSON()
+        );
+
+        echo $callback . '(' . json_encode($output, JSON_PRETTY_PRINT) . ');';
 
     } else {
 
-        echo '[{
-        "from": "Error",
-        "to": "Error",
-        "departure_time_in_seconds": 0,
-        "departure_time_in_minutes": "00:00",
-        "departure_countdown_time": "",
-        "trainline": "ERROR"}]';
+        echo $callback . '(' . $data . ');';
     }
-
-} else {
-    // normal JSON string
-    header('Content-Type: application/json; charset=utf8');
-
-    echo $data;
 }
+
+
