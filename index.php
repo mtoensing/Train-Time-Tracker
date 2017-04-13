@@ -26,7 +26,7 @@
     <script src="js/jquery.countdown.js?v=1"></script>
     <script src="js/jquery.TrainTimeTracker.js?v=1"></script>
     <script src="js/init.js?v=1"></script>
-    <link rel="stylesheet" type="text/css" href="css/traintimetracker.css?v=3" media="all"/>
+    <link rel="stylesheet" type="text/css" href="css/traintimetracker.css?v=5" media="all"/>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 <body>

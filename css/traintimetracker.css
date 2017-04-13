@@ -10,6 +10,10 @@ body {
     display: none;
 }
 
+.traintimetracker {
+    animation: fadein 1s;
+}
+
 .traintimetracker body,
 .traintimetracker ul,
 .traintimetracker li,
@@ -34,6 +38,10 @@ body {
 .traintimetracker li,
 .traintimetracker a {
     color: #e3e3e3;
+}
+
+.traintimetracker a {
+    padding: 1em 0;
 }
 
 .traintimetracker ul {
@@ -103,14 +111,28 @@ body {
 }
 
 body.flash {
-    animation: highlight 1s;
+    animation: flash 1s;
 }
 
-@keyframes highlight {
+@keyframes flash {
     0% {
         background: #858585;
     }
     100% {
         background: black;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

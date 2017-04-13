@@ -62,18 +62,14 @@
 
             });
 
-
-
             if(opts.recursion == true){
                 setTimeout(function () {
                     $('#data').TrainTimeTracker();
                 }, 10000)
             }
-
         });
 
         $(obj).unbind().click(function () {
-            console.debug('d');
             $('body').addClass('flash');
             $(obj).TrainTimeTracker({
                 recursion: false
