@@ -1,9 +1,12 @@
-$(document).ready(function () {
+(function ($) {
 
-    function getData(auto) {
+    $.fn.TrainTimeTracker = function (options) {
 
+        var opts = $.extend( {}, $.fn.TrainTimeTracker.defaults, options );
+        var obj = $(this);
         var getvars = getUrlVars();
         var identifier = getvars['id'];
+        $(obj).addClass('traintimetracker');
 
         $.getJSON("output/?callback=?&id=" + identifier, function (data) {
 
@@ -16,7 +19,7 @@ $(document).ready(function () {
 
                 if (val.trainline != null) {
 
-                    if(key > 1){
+                    if (key > 1) {
                         classvalue = 'hidden';
                     }
 
@@ -33,45 +36,58 @@ $(document).ready(function () {
 
             });
 
-            $('body').empty();
 
-            if(to != ''){
+            if (to != '') {
                 $('title').html(to);
             }
+
+            $(obj).empty();
 
             $("<ul/>", {
                 "class": "connections",
                 html: items.join("")
-            }).appendTo("body");
+            }).appendTo(obj);
 
-            $('<h1>' + from + '</h1>').prependTo("body");
+            $('<h1>' + from + '</h1>').prependTo(obj);
 
             $.each($('.countdown'), function (key, val) {
+
                 $(val).countdown($(this).data('departure-countdown-time'), function (event) {
                     $(this).html(event.strftime('%M:%S'));
                     if (event.elapsed) {
                         $(this).parent().parent().addClass('hidden');
                         $('#item2').show();
-                    } else {
-
                     }
-
-
                 });
+
             });
 
-            setTimeout(function () {
-                getData(true);
-            }, 10000)
+
+
+            if(opts.recursion == true){
+                setTimeout(function () {
+                    $('#data').TrainTimeTracker();
+                }, 10000)
+            }
 
         });
 
-    }
+        $(obj).unbind().click(function () {
+            console.debug('d');
+            $('body').addClass('flash');
+            $(obj).TrainTimeTracker({
+                recursion: false
+            });
+            setTimeout(function () {
+                $('body').removeClass('flash');
+            }, 1100);
+        });
 
+    };
 
-    function getDataWrapper() {
-        getData(false);
-    }
+    $.fn.TrainTimeTracker.defaults = {
+        recursion: true
+    };
 
 
     function getUrlVars() {
@@ -82,16 +98,4 @@ $(document).ready(function () {
         return vars;
     }
 
-    $("body").click(function () {
-
-        $(this).addClass('flash');
-        getDataWrapper();
-        setTimeout(function () {
-            $('body').removeClass('flash');
-        }, 1100);
-    });
-
-
-    getData(); // run once to start it
-
-});
+}(jQuery));

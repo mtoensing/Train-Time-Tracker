@@ -1,23 +1,105 @@
 body {
+    margin: 1em;
     font-family: 'Comfortaa', sans-serif;
     font-size: 90%;
     background: #000;
-    margin: 1em;
     cursor: pointer;
-
 }
 
-.hidden {
+.traintimetracker .hidden {
     display: none;
 }
 
-body, ul, li, p, h1, h2 {
+.traintimetracker body,
+.traintimetracker ul,
+.traintimetracker li,
+.traintimetracker p,
+.traintimetracker h1,
+.traintimetracker h2 {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
+}
+
+.traintimetracker h1 {
+    color: white;
+    padding: 0.25em 0;
+    margin: 0;
+    margin-bottom: 0.25em;
+}
+
+.traintimetracker li,
+.traintimetracker a {
+    color: #e3e3e3;
+}
+
+.traintimetracker ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0.25em 0;
+    cursor: pointer;
+}
+
+.traintimetracker li {
+    margin-bottom: 2.5em;
+}
+
+.traintimetracker h2 {
+    margin-bottom: 0.2em;
+}
+
+.traintimetracker .countdown {
+    font-size: 3em;
+    color: #fff;
+
+}
+
+.traintimetracker p {
+    margin-top: 0em;
+}
+
+.traintimetracker .s21,
+.traintimetracker .s11,
+.traintimetracker .s3,
+.traintimetracker .u1,
+.traintimetracker .u2,
+.traintimetracker .u3,
+.traintimetracker .u4,
+.traintimetracker .s1 {
+    color: white;
+    padding: 0.1em 0.1em 0.0em 0.1em;
+}
+
+.traintimetracker .s21 {
+    background: #B4143A
+}
+
+.traintimetracker .s11,
+.traintimetracker .s1 {
+    background: #04952B;
+}
+
+.traintimetracker .s3 {
+    background: #54216E;
+}
+
+.traintimetracker .u1 {
+    background: #005AA4;
+}
+
+.traintimetracker .u2 {
+    background: #ED0020;
+}
+
+.traintimetracker .u3 {
+    background: #FFD600;
+}
+
+.u4 {
+    background: #008B8F;
 }
 
 body.flash {
@@ -31,79 +113,4 @@ body.flash {
     100% {
         background: black;
     }
-}
-
-h1 {
-    color: white;
-    padding: 0.25em 0;
-    margin: 0;
-    margin-bottom: 0.25em;
-}
-
-li,a {
-    color: #e3e3e3;
-}
-
-ul {
-    list-style: none;
-    margin: 0 auto;
-    padding: 0.25em 0;
-    cursor: pointer;
-}
-
-li {
-    margin-bottom: 2.5em;
-}
-
-h2 {
-    margin-bottom: 0.2em;
-}
-
-.countdown {
-    font-size: 3em;
-    color: #fff;
-
-}
-
-p {
-    margin-top: 0em;
-}
-
-.bar {
-    width: 100%;
-    height: 5em;
-    background: red;
-}
-
-.s21, .s11, .s3, .u1, .u2, .u3, .u4, .s1 {
-    color: white;
-    padding: 0.1em 0.1em 0.0em 0.1em;
-}
-
-.s21 {
-    background: #B4143A
-}
-
-.s11, .s1 {
-    background: #04952B;
-}
-
-.s3 {
-    background: #54216E;
-}
-
-.u1 {
-    background: #005AA4;
-}
-
-.u2 {
-    background: #ED0020;
-}
-
-.u3 {
-    background: #FFD600;
-}
-
-.u4 {
-    background: #008B8F;
 }
