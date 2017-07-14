@@ -71,6 +71,7 @@ body {
 
 .traintimetracker .s21,
 .traintimetracker .s11,
+.traintimetracker .s31
 .traintimetracker .s3,
 .traintimetracker .u1,
 .traintimetracker .u2,
@@ -90,7 +91,8 @@ body {
     background: #04952B;
 }
 
-.traintimetracker .s3 {
+.traintimetracker .s3,
+.traintimetracker .s31 {
     background: #54216E;
 }
 
